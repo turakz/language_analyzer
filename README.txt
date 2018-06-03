@@ -50,8 +50,8 @@ make sure each runs independently, and then hoping to connect them
 all together after i've verified each one does what it is supposed
 to do. i can always refine later down the road.
 
--for example, i wrote the shell, made sure it worked, then wrote the parser,
-and made sure it worked, before having the shell send input to the parser,
+-for example, i wrote the Shell, made sure it worked, then wrote the Parser,
+and made sure it worked, before having the Shell send input to the Parser,
 and running them together.    
  
 -anyway i've included a makefile which you can of course modify but so to run the
@@ -74,27 +74,28 @@ generated throughout any kind of development/editing phase.
 terminals, which are (terminal, part of speech) pairs. when the Lexer is initialized,
 the constructor will read these pairs from the file and store them in an std::unordered_map.
 
--this allows the program to generate a what amounts to a look-up/symbol table, which is basically a
+-this allows the program to generate a look-up/symbol table, which is basically a
 mapping of a terminal to its English part of speech, so as a word is scanned,
-the program can immediately identify it's type and do something with it.
+the program can immediately identify its type and do something with it.
 
--to start, the shell prompts the user and then input is grabbed as a whole or
-"raw" string
+-after the Shell initializes, it is now running and will prompts the user for input. when
+input is read (as a raw string), it defers control over to the Lexer, and waits until
+the Lexer processes the text, at which point the Lexer will defer control back to the Shell,
+unless a terminating expression is read ("exit").
 
--a stringstream is then generated
+-when the Lexer receives control, a stringstream is generated
 
--the Lexer processeses each word and creates an object with (token, type)
-pairings, where type is the part of speech as defined by the English language.
+-the Lexer tokenizes each word and creates an object with (token, type)
+pairings, where token is the terminal-literal, and the type is the English
+part of speech as defined by the English language.
 
 -once the stream is tokenized, a token_stream is created, and the parser reads
-words from the token_stream and makes decisions based on the token's now defined
-'type'.
+tokens from the token_stream and makes decisions based on the token's type.
 
--once an input is processed, the shell will let you know whether or not it was
-valid or invalid based on 1. the grammars, and 2. the terminal, part of speech
-pairings that initialized the symbol_table used in the tokenization process. you can think of
-this as the current 'language' has a very, very finite set of possible words.
+-once an expression is processed, the Parser will let you know whether or not it was
+valid or invalid expression based on the possible words that can be used to express
+a command, which at the moment is a very small set of words.
 
--to close the program, provide the shell the string: "exit", and the shell
+-to close the program, provide the Shell the string: "exit", and the shell
 will terminate.
 
