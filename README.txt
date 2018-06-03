@@ -1,9 +1,8 @@
 Shell and Language Analyzer (prototype)
 
 -naive implementation of a Shell, Lexer/Tokenizer, and Lexical Parser
--production rules are as follows (and please forgive incorrect usages of some
-words. my knowledge/understanding is very much so introductory. corrections
-and feedback of course always welcomed!):
+-production rules are as follows (my knowledge/understanding is very much so introductory. corrections
+and feedback of course always welcome):
 
     language grammars:
      
