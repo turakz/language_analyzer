@@ -1,0 +1,40 @@
+# VERBS
+#
+see, verb
+look, verb
+touch, verb
+put, verb
+kick, verb
+get, verb
+pull, verb
+push, verb
+move, verb
+jump, verb
+inventory, verb
+help, verb
+menu, verb
+#
+# OBJECTS
+#
+book, object
+flashlight, object
+revolver, object
+knife, object
+#
+# NOUNS
+#
+door, noun
+statue, noun
+painting, noun
+wall, noun
+ceiling, noun
+bookshelf, noun
+dresser, noun
+mirror, noun
+#
+# PREPOSITIONS
+#
+at, preposition
+from, preposition
+in, preposition
+on, preposition
