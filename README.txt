@@ -46,8 +46,9 @@ modifiers, as well as what delimiters the parser looks for as it reads tokens.
 
 -i have some ideas for what changes need to be made but at the moment, i'm
 just trying to develop certain components in isolation, testing each one to
-make sure it runs independent of everything, and then hoping to connect them
-all together. i can always refine later down the road.
+make sure each runs independently, and then hoping to connect them
+all together after i've verified each one does what it is supposed
+to do. i can always refine later down the road.
 
 -for example, i wrote the shell, made sure it worked, then wrote the parser,
 and made sure it worked, before having the shell send input to the parser,
